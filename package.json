@@ -1,11 +1,6 @@
 {
-  "name": "jsonsearcher",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Simon Puckey",
-  "license": "ISC"
+  "dependencies": {
+    "create-react-app": "^1.5.2",
+    "express": "^4.16.3"
+  }
 }
