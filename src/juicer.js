@@ -1,11 +1,41 @@
-// const json = require('../../files/test-bookmarks.json');
-const json = require('../../canary.json');
-const fs = require('fs');
-const path = require('path');
+//TODO: worry about node and key counts later
 let ndzTrvrzd = 0;
-let urlsFound = 0;
+let keysFound = 0;
 
-const outputFileName = 'urls.txt'; //pass in as arg?
+module.exports = (json,searchKey) =>{ //(fruit, flavour)! [div!]
+    //TODO: need to assess if json is array or object and call relevant method
+    //TODO: make ternary when happy?
+    //TODO: also function to check for invalid json
+    const juiceJson = (json)=> {
+        if(typeof json === 'object' && !Array.isArray(json)){
+            juiceObject(json);
+        }
+
+        if(Array.isArray(json)){
+            juiceArray(json);
+        }
+    };
+
+    const juiceArray= ()=>{
+        
+
+    };
+
+    const juiceObject = () => {
+
+    };
+
+    //TODO: make init and call of methods (mod structure) nicer
+    jsonJuice(json);
+
+}
+
+
+
+
+
+
+
 
     const traverseArray = (arr) => {
         ndzTrvrzd++;
@@ -22,7 +52,9 @@ const outputFileName = 'urls.txt'; //pass in as arg?
 
     const traverseObj = (obj) => {
         ndzTrvrzd++;
+        //TODO: forEach or map over Object.entries??
         for(var prop in obj) {
+            //TODO: convert these if's to array of rules
             if (prop === 'url'){
                 urlsFound++;
                 outputUrls(obj[prop]);
