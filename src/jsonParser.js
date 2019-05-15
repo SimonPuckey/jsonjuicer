@@ -1,7 +1,7 @@
 // const json = require('../../files/test-bookmarks.json');
-const json = require('../../canary.json');
-const fs = require('fs');
-const path = require('path');
+// const json = require('../../canary.json');
+// const fs = require('fs');
+// const path = require('path');
 let ndzTrvrzd = 0;
 let urlsFound = 0;
 

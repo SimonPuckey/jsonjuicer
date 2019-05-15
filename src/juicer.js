@@ -1,91 +1,69 @@
-//TODO: worry about node and key counts later
-let ndzTrvrzd = 0;
-let keysFound = 0;
 
-module.exports = (json,searchKey) =>{ //(fruit, flavour)! [div!]
-    //TODO: need to assess if json is array or object and call relevant method
-    //TODO: make ternary when happy?
-    //TODO: also function to check for invalid json
+module.exports =  (json,searchTerm) => { //(fruit, flavour)! [div!]
+    
+    const searchResult = {
+        results: [],
+        keysFound: 0,
+        ndzTrvrzd:0
+    };
+
     const juiceJson = (json)=> {
+
+        //TODO: make these conditional rules functions? will need to object as not dependent each other not standalone
+        //first validate object or array...
+        if(!typeof json === 'object'&& !Array.isArray(json)){
+            throw new Error('Top level JSON element should be object or array');
+        }
+
+        //TODO: because of validation can make ternary?
+        //check if object then enter recursive func...
         if(typeof json === 'object' && !Array.isArray(json)){
             juiceObject(json);
         }
 
+        //check if array then enter recursive func...
         if(Array.isArray(json)){
             juiceArray(json);
         }
+
+        return searchResult;
     };
 
-    const juiceArray= ()=>{
-        
-
-    };
-
-    const juiceObject = () => {
-
-    };
-
-    //TODO: make init and call of methods (mod structure) nicer
-    jsonJuice(json);
-
-}
-
-
-
-
-
-
-
-
-    const traverseArray = (arr) => {
-        ndzTrvrzd++;
+    const juiceArray= (arr)=>{
+        searchResult.ndzTrvrzd++;
         arr.forEach(function(item){
             if(typeof item === 'object'){
-                traverseObj(item);
+                juiceObject(item);
             }
 
             if(Array.isArray(item)){
-                traverseArray(item);
+                juiceArray(item);
             }
-        });
-    }
+        });  
+    };
 
-    const traverseObj = (obj) => {
-        ndzTrvrzd++;
-        //TODO: forEach or map over Object.entries??
+    const juiceObject = (obj) => {
+        searchResult.ndzTrvrzd++;
         for(var prop in obj) {
-            //TODO: convert these if's to array of rules
-            if (prop === 'url'){
-                urlsFound++;
-                outputUrls(obj[prop]);
+            if (prop === searchTerm){
+                searchResult.keysFound++; //computed properties possible? is length of result array
+                searchResult.results.push(obj[prop]);
             }
             //checks not primitive but also not array, which is also an object
             if(typeof obj[prop] === 'object' && !Array.isArray(obj[prop])){
-                traverseObj(obj[prop]);
+                juiceObject(obj[prop]);
             }
 
             if(Array.isArray(obj[prop])){
-                traverseArray(obj[prop]);
+                juiceArray(obj[prop]);
             }
 
         }
     };
 
-    const outputUrls = (url) => {
-        const outputPath = path.join(__dirname,'..', 'io');
-        fs.appendFile(`${outputPath}/urls.txt`, `${url}\n`);
-    };
+    //TODO: make init and call of methods (mod structure) nicer
+    return juiceJson(json);
+}
 
-    const deleteOutputUrls = () => {
-        const outputFilePath = path.join(__dirname,'..','io',outputFileName);
-        if(fs.existsSync(outputFilePath)){
-            fs.unlink(outputFilePath, () => {console.log('file deleted')});
-        }
-    };
-
-    deleteOutputUrls();
-    traverseObj(json);
-    console.log('Nodes traversed: ', ndzTrvrzd);
-    console.log('Urls found: ', urlsFound);
 
 

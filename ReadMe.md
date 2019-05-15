@@ -1,0 +1,22 @@
+# Json Juicer
+
+Recursively searches JSON object for keys and retrieves associated value
+
+Accepts JSON to be searched and key to be searched for
+
+Should be able to insert into a functional pipeline that has already received JSON object
+
+## Module loading
+
+There are 2 main reasons why (for now) this library uses Common JS require rather than takes advantage of the latest Node support for ESG imports async module loading.
+
+* CommonJS allows loading JSON into a module by using module loading syntax. This is useful for testing and a bit easier than reading from file.
+* I cant remember the other one right now..!
+
+## TODO
+
+* Yarn add Jest etc to support testing
+* Tests can read json from another module
+* Turn this into an express website, that accepts a post with a json body and form data? that contains what should be searched for
+
+May add inbound adapters for JSON ingress e.g. to retrieve JSON from file system location.
