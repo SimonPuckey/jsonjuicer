@@ -1,10 +1,15 @@
 {
    "FAKE_NODE_1" : {
+<<<<<<< HEAD
       "url" : "http://hostname.com/resource1",
       "title" : "Test web page with video tag and src attr"
    },
    "FAKE_NODE_2" : {
       "url" : "http://hostname.com/resource2",
       "title" : "Test web page with video tag and src attr"
+=======
+            "url" : "http://localhost:8082/video-src",
+            "title" : "Test web page with video tag and src attr"
+>>>>>>> Set up Jest debugging and simplified test to help experiments
    }
 }
