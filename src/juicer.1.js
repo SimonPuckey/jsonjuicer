@@ -12,16 +12,18 @@ function* searchObject ({json:obj, searchTerm}) {
         if (prop === searchTerm){ //and === string
             //TODO: worry about keys found and traversed nodes later
             //searchResult.keysFound++; //computed properties possible? is length of result array
-            console.log('yield', obj[prop]);
+            console.log('return', obj[prop]);
             //yield obj[prop];
+            //Todo: if finds search term then needs to stop loop
             return obj[prop];
             //searchResult.results.push(obj[prop]);
+        }else{
+            const searchStrategy = getSearchStrategy(obj[prop]);
+            const json = obj[prop];
+            console.log('before yield new search strategy in search object')
+            let returnVal = yield * searchStrategy({json,searchTerm});
+            yield returnVal;
         }
-        const searchStrategy = getSearchStrategy(obj);
-        const json = obj[prop];
-        console.log('before yield new search strategy in search object')
-        let returnVal = yield * searchStrategy({json,searchTerm});
-        yield returnVal;
     }
 };
 function* searchArray ({json:arr}) {
