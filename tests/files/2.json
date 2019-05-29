@@ -5,18 +5,18 @@
             "FAKE_NODE_2" : {
                "children": [
                   {
-                     "url" : "http://127.0.0.1:8082/video-src",
+                     "url" : "http://hostname.com/resource1",
                      "title" : "Test web page with video tag and src attr but nodes above other urls in json"
                   },
                   {
                      "FAKE_NODE_3" : {
                         "children": [
                            {
-                              "url" : "http://127.0.0.1:8082/video-src",
+                              "url" : "http://hostname.com/resource2",
                               "title" : "Test web page with video tag and src attr"
                            },
                            {
-                              "url" : "http://127.0.0.1:8082/video-source-src",
+                              "url" : "http://hostname.com/resource3",
                               "title" : "Test web page with video tag and child source tag with src attr"
                            }
                         ]
@@ -28,6 +28,12 @@
       ],
       "metadata": {
          "fake_meta_prop_1" : "fake_meta_value 1"
-      }
+      },
+      "another_array":[
+         {
+            "url" : "http://hostname.com/resource4",
+            "title" : "Test web page with video tag and child source tag with src attr"
+         }
+      ]
    }
 }

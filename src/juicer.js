@@ -3,7 +3,9 @@ module.exports =  (json,searchTerm) => { //(fruit, flavour)! [div!]
     
     const searchResult = {
         results: [],
-        keysFound: 0,
+        get keysFound() {
+            return this.results.length;
+		},
         ndzTrvrzd:0
     };
 
@@ -43,10 +45,10 @@ module.exports =  (json,searchTerm) => { //(fruit, flavour)! [div!]
     };
 
     const juiceObject = (obj) => {
-        searchResult.ndzTrvrzd++;
+        searchResult.ndzTrvrzd++; //TODO: this means matching key is counted as a node
         for(var prop in obj) {
             if (prop === searchTerm){
-                searchResult.keysFound++; //computed properties possible? is length of result array
+                //searchResult.keysFound++; //computed properties possible? is length of result array
                 searchResult.results.push(obj[prop]);
             }
             //checks not primitive but also not array, which is also an object

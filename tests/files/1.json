@@ -2,7 +2,7 @@
    "FAKE_NODE_1" : {
       "children" : [
          {
-            "url" : "http://localhost:8082/video-src",
+            "url" : "http://hostname.com/resource1",
             "title" : "Test web page with video tag and src attr"
          }
       ]

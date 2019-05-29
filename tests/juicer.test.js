@@ -1,37 +1,62 @@
 const juicer = require('../src/juicer');
+const json0 = require('./files/0.json');
 const json1 = require('./files/1.json');
 const json2 = require('./files/2.json');
-console.log(json1);
 
 describe('juicer', () =>{
     const testKeys = {
         url: 'url'
     }
-    describe(`given json with single ${testKeys.url} key`, () => {
-        describe(`and search term matching ${testKeys.url}`, () => {
-            test('should retrieve a single value', () => {
+    describe(`given search term ${testKeys.url}`, () => {
+        describe(`and json0`, () => {
+            test('returns the expected result', () => {
+                const searchTerm = testKeys.url;
+                const result = juicer(json0, searchTerm);
+                console.log('results are', result);
+                const expectedResult = { 
+                    results:[ 
+                        'http://hostname.com/resource1',
+                        'http://hostname.com/resource2' 
+                    ],
+                    keysFound: 2,
+                    ndzTrvrzd: 3 
+                };
+                expect(result).toEqual(expectedResult);
+            });
+        });
+        describe(`and json1`, () => {
+            test('returns the expected result', () => {
                 const searchTerm = testKeys.url;
                 const result = juicer(json1, searchTerm);
-                expect(result.results.length).toBe(1);
+                console.log('results are', result);
+                const expectedResult = { 
+                    results:[ 
+                        'http://hostname.com/resource1'
+                    ],
+                    keysFound: 1,
+                    ndzTrvrzd: 4 
+                };
+                expect(result).toEqual(expectedResult);
             });
-            //supercedes above
-            // test('should receive expected result', () =>{
-            //     const expectation = [];
-            //     const result = juicer(json1, searchTerm)
-            //     expect(result).toBe(expectation);
-            // })
-            //is this possible?
-            //maybe expose functions
-            //should call juice array x times?
-            //should call juice object x times?
         });
-        // describe("and search key of 'NOT_EXIST'", () => {
-        //     test('should retrieve no results', () => {
+        describe(`and json2`, () => {
+            test('returns the expected result', () => {
+                const searchTerm = testKeys.url;
+                const result = juicer(json2, searchTerm);
+                console.log('results are', result);
+                const expectedResult = { 
+                    results:[ 
+                        'http://hostname.com/resource1',
+                        'http://hostname.com/resource2',
+                        'http://hostname.com/resource3',
+                        'http://hostname.com/resource4'
 
-        //     });
-        //     //should call juice array x times?
-        //     //should call juice object x times?
-        // });
-
+                    ],
+                    keysFound: 4,
+                    ndzTrvrzd: 15
+                };
+                expect(result).toEqual(expectedResult);
+            });
+        });
     });
 });
