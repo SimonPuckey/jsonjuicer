@@ -1,4 +1,4 @@
-const juicer = require('../src/juicer');
+const yieldJuice = require('../src/juicer.yield');
 const json0 = require('./files/0.json');
 const json1 = require('./files/1.json');
 const json2 = require('./files/2.json');
@@ -11,8 +11,7 @@ describe('juicer', () =>{
         describe(`and json0`, () => {
             test('returns the expected result', () => {
                 const searchTerm = testKeys.url;
-                const result = juicer(json0, searchTerm);
-                console.log('results are', result);
+                const result = yieldJuice(json0, searchTerm);
                 const expectedResult = { 
                     results:[ 
                         'http://hostname.com/resource1',
@@ -21,14 +20,17 @@ describe('juicer', () =>{
                     keysFound: 2,
                     ndzTrvrzd: 3 
                 };
-                expect(result).toEqual(expectedResult);
+                //expect(result).toEqual(expectedResult);
+                //TODO: just verify results for now...
+                console.log('RESULT IS:', result);
+                //expect(result.results).toEqual(expectedResult.results);
+                expect(result).toEqual(expectedResult.results);
             });
         });
         describe(`and json1`, () => {
             test('returns the expected result', () => {
                 const searchTerm = testKeys.url;
-                const result = juicer(json1, searchTerm);
-                console.log('results are', result);
+                const result = yieldJuice(json1, searchTerm);
                 const expectedResult = { 
                     results:[ 
                         'http://hostname.com/resource1'
@@ -36,14 +38,16 @@ describe('juicer', () =>{
                     keysFound: 1,
                     ndzTrvrzd: 4 
                 };
-                expect(result).toEqual(expectedResult);
+                //expect(result).toEqual(expectedResult);
+                //TODO: just verify results for now...
+                console.log('RESULT IS:', result);
+                expect(result).toEqual(expectedResult.results);
             });
         });
         describe(`and json2`, () => {
             test('returns the expected result', () => {
                 const searchTerm = testKeys.url;
-                const result = juicer(json2, searchTerm);
-                console.log('results are', result);
+                const result = yieldJuice(json2, searchTerm);
                 const expectedResult = { 
                     results:[ 
                         'http://hostname.com/resource1',
@@ -55,7 +59,8 @@ describe('juicer', () =>{
                     keysFound: 4,
                     ndzTrvrzd: 15
                 };
-                expect(result).toEqual(expectedResult);
+                console.log('RESULT IS:', result);
+                expect(result).toEqual(expectedResult.results);
             });
         });
     });

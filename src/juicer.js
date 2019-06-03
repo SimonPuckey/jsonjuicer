@@ -1,3 +1,11 @@
+const isObject = (input) => typeof input === 'object' && !Array.isArray(input);
+//validates json and gets search
+const getSearchStrategy = (data) => {
+    if(isObject(data)) return searchObject;
+    if(Array.isArray(data)) return searchArray;
+    throw new Error('to be searched JSON element should be object or array');
+}
+
 
 module.exports =  (json,searchTerm) => { //(fruit, flavour)! [div!]
     
@@ -9,7 +17,7 @@ module.exports =  (json,searchTerm) => { //(fruit, flavour)! [div!]
         ndzTrvrzd:0
     };
 
-    const juiceJson = (json)=> {
+    const juiceJson = (json, searchTerm)=> {
 
         //TODO: make these conditional rules functions? will need to object as not dependent each other not standalone
         //first validate object or array...
@@ -64,7 +72,7 @@ module.exports =  (json,searchTerm) => { //(fruit, flavour)! [div!]
     };
 
     //TODO: make init and call of methods (mod structure) nicer
-    return juiceJson(json);
+    return juiceJson(json, searchTerm);
 }
 
 

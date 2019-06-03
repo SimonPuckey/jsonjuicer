@@ -67,6 +67,3 @@ module.exports =  (json,searchFor) => {
 
     return searchResult;
 }
-
-
-
