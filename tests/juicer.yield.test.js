@@ -5,39 +5,39 @@ const json2 = require('./files/2.json');
 
 describe('juicer', () =>{
     const testKeys = {
-        url: 'url'
+        searchFor: 'MATCHING_KEY'
     }
-    describe(`given search term ${testKeys.url}`, () => {
+    describe(`given search term ${testKeys.searchFor}`, () => {
         describe(`and json0`, () => {
             test('returns the expected result', () => {
-                const searchTerm = testKeys.url;
+                const searchTerm = testKeys.searchFor;
                 const result = yieldJuice(json0, searchTerm);
                 const expectedResults = [ 
-                        'http://hostname.com/resource1',
-                        'http://hostname.com/resource2' 
+                        'matching_value_1',
+                        'matching_value_2' 
                     ];
                 expect(result).toEqual(expectedResults);
             });
         });
         describe(`and json1`, () => {
             test('returns the expected result', () => {
-                const searchTerm = testKeys.url;
+                const searchTerm = testKeys.searchFor;
                 const result = yieldJuice(json1, searchTerm);
                 const expectedResults = [ 
-                        'http://hostname.com/resource1'
+                        'matching_value_1'
                     ];
                 expect(result).toEqual(expectedResults);
             });
         });
         describe(`and json2`, () => {
             test('returns the expected result', () => {
-                const searchTerm = testKeys.url;
+                const searchTerm = testKeys.searchFor;
                 const result = yieldJuice(json2, searchTerm);
                 const expectedResults = [ 
-                        'http://hostname.com/resource1',
-                        'http://hostname.com/resource2',
-                        'http://hostname.com/resource3',
-                        'http://hostname.com/resource4'
+                    'matching_value_1',
+                    'matching_value_2' ,
+                    'matching_value_3',
+                    'matching_value_4' 
 
                     ];
                 console.log('RESULT IS:', result);

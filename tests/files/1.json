@@ -1,9 +1,9 @@
 {
-   "FAKE_NODE_1" : {
+   "NODE_1" : {
       "children" : [
          {
-            "url" : "http://hostname.com/resource1",
-            "title" : "Test web page with video tag and src attr"
+            "MATCHING_KEY" : "matching_value_1",
+            "ANOTHER_KEY" : "some_value"
          }
       ]
    }

@@ -1,10 +1,10 @@
 {
-   "FAKE_NODE_1" : {
-      "url" : "http://hostname.com/resource1",
-      "title" : "Test web page with video tag and src attr"
+   "NODE_1" : {
+      "MATCHING_KEY" : "matching_value_1",
+      "ANOTHER_KEY" : "some_value"
    },
-   "FAKE_NODE_2" : {
-      "url" : "http://hostname.com/resource2",
-      "title" : "Test web page with video tag and src attr"
+   "NODE_2" : {
+      "MATCHING_KEY" : "matching_value_2",
+      "ANOTHER_KEY" : "some_value"
    }
 }
