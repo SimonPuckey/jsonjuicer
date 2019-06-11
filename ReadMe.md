@@ -1,5 +1,9 @@
 # Json Juicer
 
+Have refactored to be less imperative. Now calls generator functions recursively.
+
+Could I try a stack based (rather than recursive) algorithm where each node to be searched is put on a stack, then popped off once searched?
+
 Recursively searches JSON object for keys and retrieves associated value
 
 Accepts JSON to be searched and key to be searched for
@@ -14,9 +18,7 @@ There are 2 main reasons why (for now) this library uses Common JS require rathe
 * I cant remember the other one right now..!
 
 ## TODO
-
-* Yarn add Jest etc to support testing
-* Tests can read json from another module
+* Make npm pkg for use in an existing express website 
 * Turn this into an express website, that accepts a post with a json body and form data? that contains what should be searched for
 
 May add inbound adapters for JSON ingress e.g. to retrieve JSON from file system location.
