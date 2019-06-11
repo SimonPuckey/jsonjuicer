@@ -1,15 +1,12 @@
-//TODO: as well as yield approach try 'stack' approach
 function* searchObject (obj, searchTerm) {
     for(var prop in obj) {
         if (prop === searchTerm) yield obj[prop];
         if (prop !== searchTerm && typeof obj[prop] !== 'string'){
-            //search again
             const searchStrategy = getSearchStrategy(obj[prop]);
             const json = obj[prop];
             console.log('before yield new search strategy in search object')
             yield * searchStrategy(json,searchTerm);
         }
-        //if prop not match && prop is string do not search again
     }
 };
 
@@ -48,7 +45,6 @@ module.exports =  (json,searchFor) => {
     searchFor = validateSearchTerm(searchFor);
 
     for(let x of searchStrategy(json,searchFor)){
-        console.log('in for of with yielded result: ', x)
         testResults.push(x);
     }
     return testResults;
