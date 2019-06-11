@@ -40,7 +40,6 @@ describe('juicer', () =>{
                     'matching_value_4' 
 
                     ];
-                console.log('RESULT IS:', result);
                 expect(result).toEqual(expectedResults);
             });
         });
