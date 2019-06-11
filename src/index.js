@@ -4,7 +4,6 @@ function* searchObject (obj, searchTerm) {
         if (prop !== searchTerm && typeof obj[prop] !== 'string'){
             const searchStrategy = getSearchStrategy(obj[prop]);
             const json = obj[prop];
-            console.log('before yield new search strategy in search object')
             yield * searchStrategy(json,searchTerm);
         }
     }

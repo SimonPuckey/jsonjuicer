@@ -1,4 +1,4 @@
-const yieldJuice = require('../src');
+const yieldJuice = require('../src/index');
 const json0 = require('./files/0.json');
 const json1 = require('./files/1.json');
 const json2 = require('./files/2.json');
