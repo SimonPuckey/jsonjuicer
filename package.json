@@ -16,9 +16,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@bitbucket.org/Puckey/json-juicer.git"
+    "url": "git+ssh://git@github.com:SimonPuckey/jsonjuicer.git"
   },
   "author": "Simon Puckey",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/Puckey/json-juicer#readme"
+  "homepage": "https://github.com/SimonPuckey/jsonjuicer#readme"
 }
