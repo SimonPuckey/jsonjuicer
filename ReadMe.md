@@ -16,6 +16,3 @@ There are 2 main reasons why (for now) this library uses Common JS require rathe
 
 * CommonJS allows loading JSON into a module by using module loading syntax. This is useful for testing and a bit easier than reading from file.
 * I cant remember the other one right now..!
-
-## TODO
-* Make npm pkg for use in an existing express website
