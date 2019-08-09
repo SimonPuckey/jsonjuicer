@@ -1,6 +1,7 @@
 {
   "main": "./src/index.js",
   "name": "jsonjuicer",
+  "version": "1.0.0",
   "dependencies": {
     "create-react-app": "^1.5.2",
     "express": "^4.16.3"
