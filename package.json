@@ -1,16 +1,24 @@
 {
   "main": "./src/index.js",
-  "name": "jsonjuicer",
+  "name": "@simonee/jsonjuicer",
   "version": "1.0.0",
-  "dependencies": {
-    "create-react-app": "^1.5.2",
-    "express": "^4.16.3"
-  },
+  "dependencies": {},
   "devDependencies": {
     "jest": "^24.8.0"
   },
   "scripts": {
     "test": "jest",
     "test-watch": "jest --watchAll"
-  }
+  },
+  "description": "Have refactored to be less imperative. Now calls generator functions recursively.",
+  "directories": {
+    "test": "tests"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/Puckey/json-juicer.git"
+  },
+  "author": "Simon Puckey",
+  "license": "ISC",
+  "homepage": "https://bitbucket.org/Puckey/json-juicer#readme"
 }
