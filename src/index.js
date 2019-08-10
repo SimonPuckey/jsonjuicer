@@ -34,7 +34,6 @@ function* searchObject (obj, searchTerm) {
         if (isSearchable(val)){
             const searchStrategy = getSearchStrategy(val);
             const json = val;
-            console.log("key before failure", key);
             yield * searchStrategy(json, searchTerm);
         }
     }
